@@ -1,52 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kauswagan National High School</title>
 <link rel="stylesheet" href="styles.css">
 
-<!-- FIX: Make embedded Google Sheets wide/full-width -->
 <style>
-    /* Keep the portal content centered */
+/* =========================================================
+   KNHS PORTAL - LOCAL HTML FIXES
+   ========================================================= */
+
+/* Light maroon header */
+header {
+    background: #f3e1e5 !important;
+    border-bottom: 3px solid #8b3f4f !important;
+}
+
+header .brand {
+    color: #5f2634;
+}
+
+header .republic,
+header .deped {
+    color: #7a3142;
+}
+
+/* Keep main website comfortably wide, but NOT full browser width */
+main {
+    width: 92%;
+    max-width: 1180px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Google Sheet area: medium/wide, not too narrow and not full screen */
+.sheet {
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.sheet iframe {
+    display: block;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 720px !important;
+    border: 1px solid #cfd6df;
+    box-sizing: border-box;
+    background: white;
+}
+
+/* Keep section content aligned */
+.section {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+/* Light maroon accent for section labels */
+.section .heading label,
+.intro label,
+.about label {
+    color: #8b3f4f;
+}
+
+/* Prevent anchor clicks from jumping too far upward.
+   The browser keeps the selected section visible below the nav. */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+/* Make anchored sections stop below the navigation bar */
+section[id] {
+    scroll-margin-top: 85px;
+}
+
+/* Keep the navigation visible while moving between sections */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
     main {
-        width: 100%;
-        box-sizing: border-box;
+        width: 94%;
     }
 
-    /* Make the Google Sheet container wider than the normal content */
-    .sheet {
-        width: 100vw !important;
-        max-width: 100vw !important;
-        margin-left: calc(50% - 50vw) !important;
-        margin-right: calc(50% - 50vw) !important;
-        padding: 0 !important;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    /* Stretch the Google Sheet iframe */
     .sheet iframe {
-        display: block;
-        width: 100% !important;
-        min-width: 100% !important;
-        height: 800px !important;
-        border: 1px solid #cfd6df;
-        box-sizing: border-box;
+        height: 650px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 96%;
     }
 
-    /* Keep the BEIS/LEAVE heading and note aligned with the portal */
-    .section .heading,
-    .section .note {
-        box-sizing: border-box;
+    .sheet iframe {
+        height: 600px !important;
     }
 
-    /* Responsive height */
-    @media (max-width: 768px) {
-        .sheet iframe {
-            height: 650px !important;
-        }
+    html {
+        scroll-padding-top: 70px;
     }
+
+    section[id] {
+        scroll-margin-top: 70px;
+    }
+}
 </style>
 </head>
 
@@ -56,7 +125,7 @@
 
 <header>
     <div class="brand">
-        <img src="download.png" alt="download">
+        <img src="download.png" alt="Kauswagan National High School">
         <div>
             <div class="republic">REPUBLIC OF THE PHILIPPINES</div>
             <div class="deped">DEPARTMENT OF EDUCATION</div>
@@ -89,7 +158,7 @@
         <h2>School Management &amp; Information Portal</h2>
         <p>Access the school's BEIS data, leave monitoring, administrative resources, forms and other important school information in one place.</p>
     </div>
-    <img src="download.png" alt="download">
+    <img src="download.png" alt="Kauswagan National High School">
 </section>
 
 <section class="quick">
@@ -221,7 +290,7 @@
 <!-- ABOUT -->
 <section class="section" id="about">
     <div class="about">
-        <img src="download.png" alt="download">
+        <img src="download.png" alt="Kauswagan National High School">
         <div>
             <label>ABOUT THE SCHOOL</label>
             <h2>Kauswagan National High School</h2>
