@@ -2,476 +2,214 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Kauswagan National High School</title>
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* =========================================================
-   KNHS PORTAL - UPDATED LAYOUT
-   1. Light maroon header
-   2. Sheets are wide, but NOT full-screen
-   3. Clicking/using the sheet does not move the parent page
-   4. BEIS and LEAVE sections have stable scroll positions
-   ========================================================= */
-
-:root {
-    --light-maroon: #7b3f4a;
-    --maroon-dark: #5d2632;
-    --maroon-soft: #f7edef;
-    --border: #d5dbe3;
+:root{
+    --light-maroon:#7b3f4a;
+    --maroon-dark:#5d2632;
+    --border:#d5dbe3;
 }
 
-/* Header */
-header {
-    background: var(--light-maroon) !important;
-    color: #ffffff !important;
-    border-bottom: 3px solid var(--maroon-dark);
+/* Reference-image style width: about 1440px on a 1680px screen */
+main,.title,.section,.intro,.quick{
+    width:calc(100% - 40px);
+    max-width:1440px;
+    margin-left:auto;
+    margin-right:auto;
+    box-sizing:border-box;
 }
 
-header .republic,
-header .deped,
-header b,
-header small,
-header div {
-    color: inherit;
+header{
+    background:var(--light-maroon)!important;
+    color:#fff!important;
+    border-bottom:3px solid var(--maroon-dark);
+}
+header .republic,header .deped,header b,header small,header div{
+    color:inherit;
 }
 
-/* Keep the main website at a comfortable width */
-main {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
+.sheet{
+    width:100%;
+    max-width:1440px;
+    margin:0 auto;
+    padding:0;
+    box-sizing:border-box;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:4px;
+}
+.sheet iframe{
+    display:block;
+    width:100%!important;
+    min-width:0!important;
+    height:720px!important;
+    border:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Keep sections from becoming too wide */
-.section {
-    width: 100%;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-    scroll-margin-top: 20px;
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:15px;
+}
+#beis,#leave,#services,#resources,#about{
+    scroll-margin-top:15px;
 }
 
-/* Google Sheet area */
-.sheet {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-
-    /* Important: scrolling inside the sheet stays inside the sheet */
-    overflow: hidden;
-
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-}
-
-/* Google Sheet iframe */
-.sheet iframe {
-    display: block;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: 720px !important;
-
-    border: 0;
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-
-    /* Prevent iframe focus from changing the parent layout */
-    overflow: auto;
-}
-
-/* Give the sheet heading a little breathing room */
-#beis .heading,
-#leave .heading {
-    margin-bottom: 12px;
-}
-
-/* Make the sheet note compact */
-#beis .note,
-#leave .note {
-    margin-bottom: 8px;
-}
-
-/* Prevent anchor jumps from landing at the very top of the browser */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 15px;
-}
-
-/*
-   When clicking BEIS/LEAVE navigation, the browser will scroll
-   to the actual section rather than returning to the page header.
-*/
-#beis,
-#leave {
-    scroll-margin-top: 15px;
-}
-
-/* Keep navigation links from causing odd focus movement */
-nav a {
-    scroll-margin-top: 15px;
-}
-
-/* Tablet */
-@media (max-width: 1250px) {
-    main,
-    .section {
-        max-width: calc(100% - 40px);
-    }
-
-    .sheet {
-        max-width: 100%;
+@media (min-width:1500px){
+    main,.title,.section,.intro,.quick{
+        width:1440px;
+        max-width:1440px;
     }
 }
-
-/* Mobile */
-@media (max-width: 768px) {
-    main,
-    .section {
-        max-width: calc(100% - 20px);
+@media (max-width:768px){
+    main,.title,.section,.intro,.quick{
+        width:calc(100% - 20px);
     }
-
-    .sheet iframe {
-        height: 650px !important;
-    }
-
-    header {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
+    .sheet iframe{height:650px!important;}
 }
 </style>
 </head>
 
 <body>
-
 <div class="welcome">Welcome to Kauswagan National High School</div>
 
 <header>
-    <div class="brand">
-        <img src="download.png" alt="Kauswagan National High School Logo">
-        <div>
-            <div class="republic">REPUBLIC OF THE PHILIPPINES</div>
-            <div class="deped">DEPARTMENT OF EDUCATION</div>
-            <div>Region X – Northern Mindanao</div>
-            <b>KAUSWAGAN NATIONAL HIGH SCHOOL</b>
-            <small>Kauswagan, Cagayan de Oro City</small>
-        </div>
-    </div>
+<div class="brand">
+<img src="download.png" alt="Kauswagan National High School Logo">
+<div>
+<div class="republic">REPUBLIC OF THE PHILIPPINES</div>
+<div class="deped">DEPARTMENT OF EDUCATION</div>
+<div>Region X – Northern Mindanao</div>
+<b>KAUSWAGAN NATIONAL HIGH SCHOOL</b>
+<small>Kauswagan, Cagayan de Oro City</small>
+</div>
+</div>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#beis">BEIS</a>
-    <a href="#leave">LEAVE</a>
-    <a href="#services">School Services</a>
-    <a href="#resources">Resources</a>
-    <a href="#about">About KNHS</a>
+<a href="#home">Home</a>
+<a href="#beis">BEIS</a>
+<a href="#leave">LEAVE</a>
+<a href="#services">School Services</a>
+<a href="#resources">Resources</a>
+<a href="#about">About KNHS</a>
 </nav>
 
 <section class="title" id="home">
-    <h1>Kauswagan National High School</h1>
-    <p>School Information, Monitoring and Administrative Portal</p>
+<h1>Kauswagan National High School</h1>
+<p>School Information, Monitoring and Administrative Portal</p>
 </section>
 
 <main>
 
-    <!-- INTRO -->
-    <section class="intro">
-        <div>
-            <label>KAUSWAGAN NATIONAL HIGH SCHOOL</label>
-            <h2>School Management &amp; Information Portal</h2>
-            <p>
-                Access the school's BEIS data, leave monitoring,
-                administrative resources, forms and other important
-                school information in one place.
-            </p>
-        </div>
-        <img src="download.png" alt="Kauswagan National High School Logo">
-    </section>
+<section class="intro">
+<div>
+<label>KAUSWAGAN NATIONAL HIGH SCHOOL</label>
+<h2>School Management &amp; Information Portal</h2>
+<p>Access the school's BEIS data, leave monitoring, administrative resources, forms and other important school information in one place.</p>
+</div>
+<img src="download.png" alt="Kauswagan National High School Logo">
+</section>
 
-    <!-- QUICK LINKS -->
-    <section class="quick">
-        <a href="#beis">
-            📊 <b>BEIS</b>
-            <small>Basic Education Information System</small>
-        </a>
+<section class="quick">
+<a href="#beis">📊 <b>BEIS</b><small>Basic Education Information System</small></a>
+<a href="#leave">📅 <b>LEAVE</b><small>Employee Leave Monitoring</small></a>
+<a href="#services">📝 <b>School Services</b><small>Forms and online requests</small></a>
+<a href="#resources">📁 <b>Resources</b><small>Checklists and templates</small></a>
+</section>
 
-        <a href="#leave">
-            📅 <b>LEAVE</b>
-            <small>Employee Leave Monitoring</small>
-        </a>
+<section class="section" id="beis">
+<div class="heading">
+<div>
+<label>CONNECTED GOOGLE SHEET</label>
+<h2>BEIS Monitoring</h2>
+<p>Basic Education Information System data and school monitoring.</p>
+</div>
+<a class="button" target="_blank" rel="noopener noreferrer"
+href="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing">Open BEIS Sheet ↗</a>
+</div>
+<div class="note"><b>BEIS Google Sheet</b><span>Live spreadsheet source connected to this portal.</span></div>
+<div class="sheet">
+<iframe src="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing" title="BEIS Google Sheet" loading="lazy"></iframe>
+</div>
+</section>
 
-        <a href="#services">
-            📝 <b>School Services</b>
-            <small>Forms and online requests</small>
-        </a>
+<section class="section gray" id="leave">
+<div class="heading">
+<div>
+<label>CONNECTED GOOGLE SHEET</label>
+<h2>LEAVE Monitoring</h2>
+<p>Employee leave records and leave monitoring.</p>
+</div>
+<a class="button" target="_blank" rel="noopener noreferrer"
+href="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing">Open LEAVE Sheet ↗</a>
+</div>
+<div class="note"><b>LEAVE Google Sheet</b><span>Live leave monitoring spreadsheet.</span></div>
+<div class="sheet">
+<iframe src="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing" title="LEAVE Google Sheet" loading="lazy"></iframe>
+</div>
+</section>
 
-        <a href="#resources">
-            📁 <b>Resources</b>
-            <small>Checklists and templates</small>
-        </a>
-    </section>
+<section class="section" id="services">
+<div class="heading"><div>
+<label>ONLINE SERVICES</label><h2>School Services</h2>
+<p>Official school forms and online requests.</p>
+</div></div>
+<div class="cards">
+<div><h3>📝 Administrative Requests</h3><p>Certificates, records, clearances and administrative services.</p></div>
+<div><h3>👩‍🏫 Personnel Services</h3><p>Leave requests, personnel records and staff services.</p></div>
+<div><h3>🎓 Student Services</h3><p>Student records and school document requests.</p></div>
+</div>
+</section>
 
-    <!-- =====================================================
-         BEIS MONITORING
-         ===================================================== -->
-    <section class="section" id="beis">
+<section class="section gray" id="resources">
+<div class="heading"><div>
+<label>DOCUMENT CENTER</label><h2>Checklists &amp; Templates</h2>
+<p>KNHS administrative and school-operation resources.</p>
+</div></div>
+<div class="cards four">
+<div><h3>📋 Administrative Templates</h3><p>Letters, certifications and office templates.</p></div>
+<div><h3>💰 Finance Templates</h3><p>Budget, procurement and financial monitoring templates.</p></div>
+<div><h3>📚 Records Management</h3><p>Student and personnel records resources.</p></div>
+<div><h3>🔗 DepEd Links</h3><p>Quick access to official DepEd systems.</p></div>
+</div>
+</section>
 
-        <div class="heading">
-            <div>
-                <label>CONNECTED GOOGLE SHEET</label>
-                <h2>BEIS Monitoring</h2>
-                <p>
-                    Basic Education Information System data and school monitoring.
-                </p>
-            </div>
-
-            <a
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing">
-                Open BEIS Sheet ↗
-            </a>
-        </div>
-
-        <div class="note">
-            <b>BEIS Google Sheet</b>
-            <span>Live spreadsheet source connected to this portal.</span>
-        </div>
-
-        <div class="sheet" id="beis-sheet-container">
-            <iframe
-                src="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing"
-                title="BEIS Google Sheet"
-                loading="lazy">
-            </iframe>
-        </div>
-
-    </section>
-
-    <!-- =====================================================
-         LEAVE MONITORING
-         ===================================================== -->
-    <section class="section gray" id="leave">
-
-        <div class="heading">
-            <div>
-                <label>CONNECTED GOOGLE SHEET</label>
-                <h2>LEAVE Monitoring</h2>
-                <p>
-                    Employee leave records and leave monitoring.
-                </p>
-            </div>
-
-            <a
-                class="button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing">
-                Open LEAVE Sheet ↗
-            </a>
-        </div>
-
-        <div class="note">
-            <b>LEAVE Google Sheet</b>
-            <span>Live leave monitoring spreadsheet.</span>
-        </div>
-
-        <div class="sheet" id="leave-sheet-container">
-            <iframe
-                src="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing"
-                title="LEAVE Google Sheet"
-                loading="lazy">
-            </iframe>
-        </div>
-
-    </section>
-
-    <!-- SCHOOL SERVICES -->
-    <section class="section" id="services">
-
-        <div class="heading">
-            <div>
-                <label>ONLINE SERVICES</label>
-                <h2>School Services</h2>
-                <p>Official school forms and online requests.</p>
-            </div>
-        </div>
-
-        <div class="cards">
-
-            <div>
-                <h3>📝 Administrative Requests</h3>
-                <p>
-                    Certificates, records, clearances and administrative services.
-                </p>
-            </div>
-
-            <div>
-                <h3>👩‍🏫 Personnel Services</h3>
-                <p>
-                    Leave requests, personnel records and staff services.
-                </p>
-            </div>
-
-            <div>
-                <h3>🎓 Student Services</h3>
-                <p>
-                    Student records and school document requests.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- RESOURCES -->
-    <section class="section gray" id="resources">
-
-        <div class="heading">
-            <div>
-                <label>DOCUMENT CENTER</label>
-                <h2>Checklists &amp; Templates</h2>
-                <p>
-                    KNHS administrative and school-operation resources.
-                </p>
-            </div>
-        </div>
-
-        <div class="cards four">
-
-            <div>
-                <h3>📋 Administrative Templates</h3>
-                <p>
-                    Letters, certifications and office templates.
-                </p>
-            </div>
-
-            <div>
-                <h3>💰 Finance Templates</h3>
-                <p>
-                    Budget, procurement and financial monitoring templates.
-                </p>
-            </div>
-
-            <div>
-                <h3>📚 Records Management</h3>
-                <p>
-                    Student and personnel records resources.
-                </p>
-            </div>
-
-            <div>
-                <h3>🔗 DepEd Links</h3>
-                <p>
-                    Quick access to official DepEd systems.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-
-        <div class="about">
-            <img src="download.png" alt="Kauswagan National High School Logo">
-
-            <div>
-                <label>ABOUT THE SCHOOL</label>
-                <h2>Kauswagan National High School</h2>
-                <p>
-                    This portal provides organized access to school information,
-                    monitoring systems and administrative resources.
-                </p>
-            </div>
-        </div>
-
-    </section>
+<section class="section" id="about">
+<div class="about">
+<img src="download.png" alt="Kauswagan National High School Logo">
+<div>
+<label>ABOUT THE SCHOOL</label>
+<h2>Kauswagan National High School</h2>
+<p>This portal provides organized access to school information, monitoring systems and administrative resources.</p>
+</div>
+</div>
+</section>
 
 </main>
 
 <footer>
-    <b>KAUSWAGAN NATIONAL HIGH SCHOOL</b>
-    <span>
-        School Information &amp; Administrative Portal • DepEd Region X
-    </span>
+<b>KAUSWAGAN NATIONAL HIGH SCHOOL</b>
+<span>School Information &amp; Administrative Portal • DepEd Region X</span>
 </footer>
 
-<!-- =========================================================
-     SCROLL CONTROL
-     Prevents the parent page from jumping to the header when
-     interacting with the embedded Google Sheet.
-     ========================================================= -->
 <script>
-(function () {
-
-    // Remember the parent's current scroll position when entering an iframe.
-    document.querySelectorAll('.sheet iframe').forEach(function (iframe) {
-
-        iframe.addEventListener('mouseenter', function () {
-            iframe.dataset.parentScrollY = window.scrollY;
-        });
-
-        iframe.addEventListener('focus', function () {
-            iframe.dataset.parentScrollY = window.scrollY;
-        });
-
+document.querySelectorAll('nav a,.quick a').forEach(function(link){
+    link.addEventListener('click',function(e){
+        const id=this.getAttribute('href');
+        const target=document.querySelector(id);
+        if(!target)return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+        if(history.pushState)history.pushState(null,'',id);
     });
-
-    // Prevent accidental hash changes from Google Sheet interactions
-    // from changing the parent page location.
-    window.addEventListener('hashchange', function () {
-        if (window.location.hash === '#beis' || window.location.hash === '#leave') {
-            return;
-        }
-    });
-
-    // Keep navigation clicks controlled and scroll directly to the section.
-    document.querySelectorAll('nav a, .quick a').forEach(function (link) {
-
-        link.addEventListener('click', function (event) {
-
-            var targetId = this.getAttribute('href');
-
-            if (!targetId || targetId.charAt(0) !== '#') {
-                return;
-            }
-
-            var target = document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-            // Keep the URL hash without causing a second browser jump.
-            if (history.pushState) {
-                history.pushState(null, '', targetId);
-            }
-        });
-
-    });
-
-})();
+});
 </script>
-
 </body>
 </html>
