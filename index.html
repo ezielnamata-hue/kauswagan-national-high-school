@@ -18,8 +18,39 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 #beis,#leave,#services,#resources,#about{scroll-margin-top:15px}
 @media (min-width:1500px){main,.title,.section,.intro,.quick{width:1440px;max-width:1440px}}
 @media (max-width:768px){main,.title,.section,.intro,.quick{width:calc(100% - 20px)}.sheet iframe{height:650px!important}}
+
+/* =========================================================
+   GOOGLE SHEET DISPLAY ZOOM: 75%
+   The Google Sheet is cross-origin, so its internal Google
+   Sheets zoom cannot be changed directly. This scales the
+   embedded iframe visually to 75% while keeping the sheet
+   area usable.
+   ========================================================= */
+
+.sheet {
+    overflow: hidden !important;
+    position: relative;
+}
+
+.sheet iframe {
+    width: 133.333333% !important;
+    height: 960px !important;
+    transform: scale(0.75);
+    transform-origin: top left;
+    border: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sheet iframe {
+        width: 133.333333% !important;
+        height: 867px !important;
+    }
+}
+
 </style>
 </head>
+<!-- GOOGLE SHEET ZOOM: 75% -->
 <body>
 
 <div class="welcome">Welcome to Kauswagan National High School</div>
