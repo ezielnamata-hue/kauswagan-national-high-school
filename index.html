@@ -53,7 +53,7 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 .personnel-downloads{
     margin-top:18px;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:14px;
 }
 .personnel-download{
@@ -90,7 +90,10 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 .personnel-download .download-btn:hover{
     background:#5d2632;
 }
-@media(max-width:900px){
+@media(max-width:1100px){
+    .personnel-downloads{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
     .personnel-downloads{grid-template-columns:1fr;}
 }
 
@@ -174,7 +177,11 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 <section class="section" id="services">
 <div class="heading"><div><label>ONLINE SERVICES</label><h2>School Services</h2><p>Official school forms and online requests.</p></div></div>
 <div class="cards">
-<div><h3>📝 Administrative Requests</h3><p>Certificates, records, clearances and administrative services.</p></div>
+<div>
+<h3>📝 Administrative Requests</h3>
+<p>Certificates, records, clearances and administrative services.</p>
+<a class="service-link" href="https://docs.google.com/forms/d/e/1FAIpQLSd-S3WzFNNudCisVKnTLLePjGYi53iLiQIYZ7GxOPYRg-FTeg/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Request for Cert. of Appearance ↗</a>
+</div>
 <div class="personnel-service-card">
 <h3>👩‍🏫 Personnel Services</h3>
 <p>Leave requests, personnel records and staff services.</p>
@@ -205,6 +212,14 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 <a class="download-btn" href="CS48-DTR.xlsx" download>Download Excel ↓</a>
 </div>
 
+<div class="personnel-download">
+<div>
+<h4>📄 Division Office Clearance Form</h4>
+<p>CS Form No. 7, Series of 2018 — clearance from work-related, money and property accountabilities.</p>
+</div>
+<a class="download-btn" href="2026 DIVISION CLEARANCE.docx" download>Download DOCX ↓</a>
+</div>
+
 </div>
 </div>
 <div class="student-service-card">
@@ -219,7 +234,11 @@ html{scroll-behavior:smooth;scroll-padding-top:15px}
 <div class="cards four">
 <div><h3>📋 Administrative Templates</h3><p>Letters, certifications and office templates.</p></div>
 <div><h3>💰 Finance Templates</h3><p>Budget, procurement and financial monitoring templates.</p></div>
-<div><h3>📚 Records Management</h3><p>Student and personnel records resources.</p></div>
+<div>
+<h3>📚 Records Management</h3>
+<p>Student and personnel records resources.</p>
+<a class="service-link" href="https://drive.google.com/drive/u/0/folders/1xplyngXb7glJUZ1pELdFzzmb9Ok28aEA" target="_blank" rel="noopener noreferrer">📄 Cert. of Appearance ↗</a>
+</div>
 <div class="deped-links-card">
 <h3>🔗 DepEd Links</h3>
 <p>Quick access to official DepEd systems and school social media.</p>
