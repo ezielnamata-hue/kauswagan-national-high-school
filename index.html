@@ -1,42 +1,376 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KNHS DocumentTrack V5</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kauswagan National High School</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-:root{--nav:#09233f;--accent:#1769aa;--bg:#f3f6fa;--line:#dce3ec}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:#172033}button,input,select,textarea{font:inherit}button{cursor:pointer}.login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#06192e,#17649a)}.loginbox{width:min(440px,92vw);background:#fff;border-radius:16px;padding:32px;box-shadow:0 20px 70px #0005}.seal{width:65px;height:65px;border:3px solid var(--nav);border-radius:50%;display:grid;place-items:center;font-weight:900;color:var(--nav);margin-bottom:14px}.loginbox h1{margin:0 0 5px}.muted{color:#697586}.small{font-size:11px}.loginbox label,.form label{display:block;font-size:11px;font-weight:700;margin-top:12px}.loginbox input,.form input,.form select,.form textarea,.toolbar input,.toolbar select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;margin-top:5px;background:white}.loginbox button,.primary{background:var(--nav);color:white;border:0;border-radius:8px;padding:11px 15px;font-weight:700}.loginbox button{width:100%;margin-top:16px}.app{display:none;min-height:100vh}.side{position:fixed;inset:0 auto 0 0;width:245px;background:var(--nav);color:white;padding:18px 14px;z-index:4}.brand{display:flex;gap:10px;align-items:center;padding:4px 5px 18px;border-bottom:1px solid #ffffff22;margin-bottom:14px}.brand .seal{width:44px;height:44px;border-color:white;color:white;margin:0;font-size:10px}.brand b{font-size:11px}.brand small{display:block;color:#aebfd2;font-size:9px}.nav{width:100%;display:block;text-align:left;border:0;background:none;color:#c7d3e1;padding:11px 12px;border-radius:8px;margin:2px 0}.nav.active,.nav:hover{background:#ffffff18;color:white}.sidefoot{position:absolute;bottom:18px;left:20px;right:20px;font-size:10px;color:#aebfd2;line-height:1.5}.main{margin-left:245px;padding:25px 30px}.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px}.top h1{margin:0;font-size:26px}.top p{margin:4px 0;font-size:12px;color:#697586}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.card,.panel{background:white;border:1px solid #e0e6ee;border-radius:11px;padding:16px}.card span{font-size:10px;color:#697586}.card b{display:block;font-size:27px;margin-top:4px}.danger b{color:#b42318}.panel{margin-top:16px}.panel h2{font-size:17px;margin:0 0 13px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.toolbar input{flex:1;min-width:220px}.toolbar select{width:auto}.secondary{border:1px solid var(--line);background:white;border-radius:8px;padding:10px 13px;font-weight:700}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse}th,td{padding:9px 8px;border-bottom:1px solid #edf0f4;text-align:left;font-size:12px;white-space:nowrap}th{font-size:10px;text-transform:uppercase;color:#697586}.badge{display:inline-block;padding:4px 8px;border-radius:99px;font-size:10px;font-weight:700}.received{background:#e5f0ff;color:#2455a4}.process{background:#fff2cf;color:#8a6100}.released{background:#e3f7eb;color:#167247}.closed{background:#edf0f4;color:#596579}.urgent{background:#fee4e2;color:#b42318}.high{background:#fff0d6;color:#996300}.normal{background:#edf2f7;color:#536173}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wide{grid-column:1/-1}.form textarea{min-height:85px}.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}.modal{position:fixed;inset:0;background:#0008;display:none;place-items:center;z-index:10;padding:18px}.modalbox{width:min(760px,96vw);max-height:92vh;overflow:auto;background:white;border-radius:13px;padding:20px}.modalhead{display:flex;justify-content:space-between;align-items:center}.modalhead h2{margin:0}.close{border:0;background:none;font-size:24px}.detail{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kv{background:#f7f9fb;border-radius:8px;padding:10px}.kv small{display:block;color:#748096}.kv b{display:block;margin-top:3px;font-size:12px}.timeline{border-left:2px solid #dfe5ed;padding-left:14px}.event{margin:0 0 15px}.empty{text-align:center;padding:25px;color:#697586}.flash{position:fixed;right:20px;top:18px;z-index:30;background:#e8f8ef;color:#176b45;padding:11px 15px;border-radius:8px;box-shadow:0 6px 25px #0002}.hidden{display:none!important}.online{color:#167247;font-weight:700}.offline{color:#b42318;font-weight:700}
-@media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.side{position:static;width:100%;height:auto}.sidefoot{position:static;margin-top:15px}.main{margin:0;padding:15px}.grid,.detail{grid-template-columns:1fr}.wide{grid-column:auto}.top{align-items:flex-start}}
+:root{--light-maroon:#7b3f4a;--maroon-dark:#5d2632;--border:#d5dbe3}
+main,.title,.section,.intro,.quick{width:calc(100% - 40px);max-width:1440px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+header{background:var(--light-maroon)!important;color:#fff!important;border-bottom:3px solid var(--maroon-dark)}
+footer{background:var(--light-maroon)!important;color:#fff!important;border-top:3px solid var(--maroon-dark)}
+footer b,footer span{color:#fff!important}
+header .republic,header .deped,header b,header small,header div{color:inherit}
+.sheet{width:100%;max-width:1440px;margin:0 auto;padding:0;box-sizing:border-box;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:4px;overscroll-behavior:contain}
+.sheet iframe{display:block;width:100%!important;min-width:0!important;height:720px!important;border:0;margin:0;padding:0;box-sizing:border-box;overscroll-behavior:contain}
+html{scroll-behavior:smooth;scroll-padding-top:15px}
+#beis,#leave,#services,#resources,#about{scroll-margin-top:15px}
+@media (min-width:1500px){main,.title,.section,.intro,.quick{width:1440px;max-width:1440px}}
+@media (max-width:768px){main,.title,.section,.intro,.quick{width:calc(100% - 20px)}.sheet iframe{height:650px!important}}
+
+/* =========================================================
+   GOOGLE SHEET DISPLAY ZOOM: 75%
+   The Google Sheet is cross-origin, so its internal Google
+   Sheets zoom cannot be changed directly. This scales the
+   embedded iframe visually to 75% while keeping the sheet
+   area usable.
+   ========================================================= */
+
+.sheet {
+    overflow: hidden !important;
+    position: relative;
+}
+
+.sheet iframe {
+    width: 133.333333% !important;
+    height: 960px !important;
+    transform: scale(0.75);
+    transform-origin: top left;
+    border: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sheet iframe {
+        width: 133.333333% !important;
+        height: 867px !important;
+    }
+}
+
+
+/* PERSONNEL SERVICES DOWNLOADS */
+.personnel-downloads{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+.personnel-download{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px;
+    background:#fff;
+    border:1px solid #d5dbe3;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+.personnel-download h4{
+    margin:0;
+    font-size:16px;
+}
+.personnel-download p{
+    margin:5px 0 0;
+    font-size:13px;
+    line-height:1.5;
+}
+.personnel-download .download-btn{
+    display:inline-block;
+    width:max-content;
+    padding:9px 14px;
+    border-radius:5px;
+    background:#7b3f4a;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:13px;
+}
+.personnel-download .download-btn:hover{
+    background:#5d2632;
+}
+@media(max-width:1100px){
+    .personnel-downloads{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+    .personnel-downloads{grid-template-columns:1fr;}
+}
+
+
+/* SERVICE / EXTERNAL LINKS */
+.service-link{
+    display:inline-block;
+    margin-top:10px;
+    padding:9px 13px;
+    border-radius:5px;
+    background:#7b3f4a;
+    color:#fff!important;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+}
+.service-link:hover{
+    background:#5d2632;
+}
+
 </style>
 </head>
+<!-- GOOGLE SHEET ZOOM: 75% + MAIN PAGE SCROLL LOCK -->
 <body>
-<div id="login" class="login"><div class="loginbox"><div class="seal">KNHS</div><h1>DocumentTrack V5</h1><p class="muted">Kauswagan National High School<br>GitHub Pages Edition</p><p class="small muted">This edition can run as a GitHub Pages static site and can connect to a Supabase database when configured.</p><div id="loginMsg"></div><label>Username<input id="user" value="admin"></label><label>Password<input id="pass" type="password" value="admin123"></label><button onclick="login()">Sign In</button><p class="small muted">Demo/local account: admin / admin123</p></div></div>
-<div id="app" class="app">
-<aside class="side"><div class="brand"><div class="seal">KNHS</div><div><b>KAUSWAGAN NATIONAL<br>HIGH SCHOOL</b><small>DOCUMENTTRACK V5</small></div></div>
-<button class="nav active" onclick="page('dashboard',this)">▦ Dashboard</button><button class="nav" onclick="page('registry',this)">▤ Document Registry</button><button class="nav" onclick="page('reports',this)">▥ Reports</button><button class="nav" onclick="page('settings',this)">⚙ Connection</button>
-<div class="sidefoot"><span id="foot"></span><br><br><span id="who"></span><br><button class="nav" style="padding-left:0" onclick="logout()">↪ Sign out</button></div></aside>
-<main class="main"><div class="top"><div><h1 id="title">Dashboard</h1><p>Online-ready school document tracking system</p></div><button class="primary" onclick="openDoc()">＋ Register Document</button></div><section id="dashboard"></section><section id="registry" class="hidden"></section><section id="reports" class="hidden"></section><section id="settings" class="hidden"></section></main></div>
-<div id="modal" class="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeM()">×</button></div><div id="modalBody"></div></div></div>
+
+<div class="welcome">Welcome to Kauswagan National High School</div>
+
+<header>
+<div class="brand">
+<img src="download.png" alt="Kauswagan National High School Logo">
+<div>
+<div class="republic">REPUBLIC OF THE PHILIPPINES</div>
+<div class="deped">DEPARTMENT OF EDUCATION</div>
+<div>Region X – Northern Mindanao</div>
+<b>KAUSWAGAN NATIONAL HIGH SCHOOL</b>
+<small>Kauswagan, Cagayan de Oro City</small>
+</div>
+</div>
+</header>
+
+<nav>
+<a href="#home">Home</a><a href="#beis">BEIS</a><a href="#leave">LEAVE</a>
+<a href="#services">School Services</a><a href="#resources">Resources</a><a href="#about">About KNHS</a>
+</nav>
+
+<section class="title" id="home">
+<h1>Kauswagan National High School</h1>
+<p>School Information, Monitoring and Administrative Portal</p>
+</section>
+
+<main>
+
+<section class="intro">
+<div><label>KAUSWAGAN NATIONAL HIGH SCHOOL</label>
+<h2>School Management &amp; Information Portal</h2>
+<p>Access the school's BEIS data, leave monitoring, administrative resources, forms and other important school information in one place.</p></div>
+<img src="download.png" alt="Kauswagan National High School Logo">
+</section>
+
+<section class="quick">
+<a href="#beis">📊 <b>BEIS</b><small>Basic Education Information System</small></a>
+<a href="#leave">📅 <b>LEAVE</b><small>Employee Leave Monitoring</small></a>
+<a href="#services">📝 <b>School Services</b><small>Forms and online requests</small></a>
+<a href="#resources">📁 <b>Resources</b><small>Checklists and templates</small></a>
+</section>
+
+<section class="section" id="beis">
+<div class="heading"><div><label>CONNECTED GOOGLE SHEET</label><h2>BEIS Monitoring</h2><p>Basic Education Information System data and school monitoring.</p></div>
+<a class="button" target="_blank" rel="noopener noreferrer" href="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing">Open BEIS Sheet ↗</a></div>
+<div class="note"><b>BEIS Google Sheet</b><span>Live spreadsheet source connected to this portal.</span></div>
+<div class="sheet"><iframe src="https://docs.google.com/spreadsheets/d/19Qzwmu1AwNyBPIGNwnQkPbJVdPUJelZ-TA6FdV6gVJs/edit?usp=sharing" title="BEIS Google Sheet" loading="lazy"></iframe></div>
+</section>
+
+<section class="section gray" id="leave">
+<div class="heading"><div><label>CONNECTED GOOGLE SHEET</label><h2>LEAVE Monitoring</h2><p>Employee leave records and leave monitoring.</p></div>
+<a class="button" target="_blank" rel="noopener noreferrer" href="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing">Open LEAVE Sheet ↗</a></div>
+<div class="note"><b>LEAVE Google Sheet</b><span>Live leave monitoring spreadsheet.</span></div>
+<div class="sheet"><iframe src="https://docs.google.com/spreadsheets/d/1Lwhm4OxGXtttAblVjXvwdRTry8CtxDkNNbpgr9DqSIc/edit?usp=sharing" title="LEAVE Google Sheet" loading="lazy"></iframe></div>
+</section>
+
+<section class="section" id="services">
+<div class="heading"><div><label>ONLINE SERVICES</label><h2>School Services</h2><p>Official school forms and online requests.</p></div></div>
+<div class="cards">
+<div>
+<h3>📝 Administrative Requests</h3>
+<p>Request for Appearance and administrative services.</p>
+<a class="service-link" href="https://docs.google.com/forms/d/e/1FAIpQLSd-S3WzFNNudCisVKnTLLePjGYi53iLiQIYZ7GxOPYRg-FTeg/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Request for Cert. of Appearance ↗</a>
+</div>
+<div class="personnel-service-card">
+<h3>👩‍🏫 Personnel Services</h3>
+<p>Civil Service Forms, Clearances and staff services.</p>
+
+<div class="personnel-downloads">
+
+<div class="personnel-download">
+<div>
+<h4>📄 Application for Leave — Short Leave</h4>
+<p>Civil Service Form No. 6, Revised 2020.</p>
+</div>
+<a class="download-btn" href="FORM6- Short leave.pdf" download>Download PDF ↓</a>
+</div>
+
+<div class="personnel-download">
+<div>
+<h4>📄 Application for Leave — Long Leave</h4>
+<p>Civil Service Form No. 6, Revised 2020.</p>
+</div>
+<a class="download-btn" href="FORM6-Long Leave.pdf" download>Download PDF ↓</a>
+</div>
+
+<div class="personnel-download">
+<div>
+<h4>📊 CS48 — Daily Time Record</h4>
+<p>Excel template for personnel DTR records.</p>
+</div>
+<a class="download-btn" href="CS48-DTR.xlsx" download>Download Excel ↓</a>
+</div>
+
+
+<div class="personnel-download">
+<div>
+<h4>📄 Locator</h4>
+<p>locator document.</p>
+</div>
+<a class="download-btn" href="LOCATOR.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a>
+</div>
+
+<div class="personnel-download">
+<div>
+<h4>📄 Division Office Clearance Form</h4>
+<p>CS Form No. 7, Series of 2018 — clearance from work-related, money and property accountabilities.</p>
+</div>
+<a class="download-btn" href="2026 DIVISION CLEARANCE.docx" download>Download DOCX ↓</a>
+</div>
+
+</div>
+</div>
+<div class="student-service-card">
+<h3>🎓 Student Services</h3>
+<p>Student records and school document requests.</p>
+<a class="service-link" href="https://docs.google.com/forms/d/e/1FAIpQLSe-37AxM1Q3SIq4X95T5xvLXIDwF1l3USqixlOYqrajsQ170w/viewform?usp=header" target="_blank" rel="noopener noreferrer">🪪 Identification Card Request ↗</a>
+</div>
+</div></section>
+
+<section class="section gray" id="resources">
+<div class="heading"><div><label>DOCUMENT CENTER</label><h2>Checklists &amp; Templates</h2><p>KNHS administrative and school-operation resources.</p></div></div>
+<div class="cards four">
+<div><h3>📋 Administrative Templates</h3><p>Letters, certifications and office templates.</p></div>
+<div>
+<h3>💰 Finance Center</h3>
+<p>Budget, Procurement and Financial Monitoring.</p>
+<a class="service-link" href="https://docs.google.com/spreadsheets/d/1uoqTF7cYA61zzCZ9yf05J66_VF2j33jMikYRV3MjupU/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">📊 Expense Tracker ↗</a>
+</div>
+<div>
+<h3>📚 Records Management</h3>
+<p>Student and personnel records resources.</p>
+<a class="service-link" href="https://drive.google.com/drive/u/0/folders/1xplyngXb7glJUZ1pELdFzzmb9Ok28aEA" target="_blank" rel="noopener noreferrer">📄 Cert. of Appearance ↗</a>
+</div>
+<div class="deped-links-card">
+<h3>🔗 DepEd Links</h3>
+<p>Quick access to official DepEd systems and school social media.</p>
+<a class="service-link" href="https://lis.deped.gov.ph/uis/login" target="_blank" rel="noopener noreferrer">🖥️ DepEd LIS ↗</a>
+<a class="service-link" href="https://depedcdo.net/" target="_blank" rel="noopener noreferrer">🌐 DepEd CDO ↗</a>
+<a class="service-link" href="https://www.facebook.com/profile.php?id=61562879756218" target="_blank" rel="noopener noreferrer">📘 KNHS Facebook Page ↗</a>
+</div>
+</div></section>
+
+<section class="section" id="about">
+<div class="about"><img src="download.png" alt="Kauswagan National High School Logo">
+<div><label>ABOUT THE SCHOOL</label><h2>Kauswagan National High School</h2><p>This portal provides organized access to school information, monitoring systems and administrative resources.</p></div></div>
+</section>
+
+</main>
+
+<footer><b>KAUSWAGAN NATIONAL HIGH SCHOOL</b><span>School Information &amp; Administrative Portal • DepEd Region X</span></footer>
+
+
 <script>
-const LS='KNHS_V5_DATA';let db,current;
-const seed={school:{name:'Kauswagan National High School',id:'315411',division:'Cagayan de Oro City',region:'Region X'},users:[{username:'admin',password:'admin123',name:'System Administrator',role:'Administrator'}],documents:[]};
-function load(){try{db=JSON.parse(localStorage.getItem(LS))||structuredClone(seed)}catch(e){db=structuredClone(seed)}}function save(){localStorage.setItem(LS,JSON.stringify(db))}
-function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-function id(){return Date.now()+Math.random()}function today(){return new Date().toISOString().slice(0,10)}
-function flash(t){let x=document.createElement('div');x.className='flash';x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),2200)}
-function login(){let u=db.users.find(x=>x.username===user.value&&x.password===pass.value);if(!u){loginMsg.innerHTML='<div class="small" style="color:#b42318;margin-top:8px">Invalid login.</div>';return}current=u;document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';foot.innerHTML=`${esc(db.school.name)}<br>School ID: ${esc(db.school.id)}<br>${esc(db.school.division)} • ${esc(db.school.region)}`;who.textContent=`${u.name} • ${u.role}`;renderDashboard()}
-function logout(){current=null;app.style.display='none';login.style.display='grid'}
-function page(p,b){document.querySelectorAll('main section').forEach(x=>x.classList.add('hidden'));document.getElementById(p).classList.remove('hidden');document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));if(b)b.classList.add('active');title.textContent={dashboard:'Dashboard',registry:'Document Registry',reports:'Reports',settings:'Connection & Data'}[p];({dashboard:renderDashboard,registry:renderRegistry,reports:renderReports,settings:renderSettings}[p])()}
-function badge(s){return `<span class="badge ${s==='In Process'?'process':s.toLowerCase().replace(' ','-')}">${esc(s)}</span>`}function pri(p){return `<span class="badge ${p.toLowerCase()}">${esc(p)}</span>`}
-function renderDashboard(){let a=db.documents,t=a.length,r=a.filter(x=>x.status==='Received').length,p=a.filter(x=>x.status==='In Process').length,l=a.filter(x=>x.status==='Released').length,o=a.filter(x=>x.due&&x.due<today()&&!['Released','Closed'].includes(x.status)).length;dashboard.innerHTML=`<div class="cards"><div class="card"><span>TOTAL</span><b>${t}</b></div><div class="card"><span>RECEIVED</span><b>${r}</b></div><div class="card"><span>IN PROCESS</span><b>${p}</b></div><div class="card"><span>RELEASED</span><b>${l}</b></div><div class="card danger"><span>OVERDUE</span><b>${o}</b></div></div><div class="panel"><h2>Recent Documents</h2><div class="tablewrap"><table><tr><th>Control</th><th>Subject</th><th>Date</th><th>Status</th><th>Priority</th></tr>${a.slice().reverse().slice(0,10).map(x=>`<tr><td><a href="#" onclick="view(${x.id});return false"><b>${esc(x.control)}</b></a></td><td>${esc(x.subject)}</td><td>${esc(x.received)}</td><td>${badge(x.status)}</td><td>${pri(x.priority)}</td></tr>`).join('')||'<tr><td colspan="5" class="empty">No documents registered.</td></tr>'}</table></div></div>`}
-function next(){let y=new Date().getFullYear(),n=db.documents.filter(x=>x.control.startsWith('KNHS-'+y)).length+1;return `KNHS-${y}-${String(n).padStart(4,'0')}`}
-function openDoc(existing){let d=existing?db.documents.find(x=>x.id===existing):null;modalTitle.textContent=d?'Edit Document':'Register Document';modalBody.innerHTML=`<form class="form grid" onsubmit="saveDoc(event,${existing||0})"><label>Control No.<input id="fc" value="${esc(d?.control||next())}" readonly></label><label>Reference No.<input id="fr" value="${esc(d?.reference||'')}"></label><label>Subject / Title*<input id="fs" required value="${esc(d?.subject||'')}"></label><label>Type<select id="ft">${['Incoming Letter','Memorandum','Request','Procurement','Financial','Personnel','Report','Other'].map(x=>`<option ${d?.type===x?'selected':''}>${x}</option>`).join('')}</select></label><label>Sender / Requestor<input id="fse" value="${esc(d?.sender||'')}"></label><label>Originating Office<input id="fo" value="${esc(d?.origin||'')}"></label><label>Date Received<input type="date" id="fd" value="${d?.received||today()}"></label><label>Due Date<input type="date" id="fdu" value="${d?.due||''}"></label><label>Priority<select id="fp">${['Normal','High','Urgent'].map(x=>`<option ${d?.priority===x||(!d&&x==='Normal')?'selected':''}>${x}</option>`).join('')}</select></label><label>Status<select id="fst">${['Received','In Process','Released','Closed'].map(x=>`<option ${d?.status===x||(!d&&x==='Received')?'selected':''}>${x}</option>`).join('')}</select></label><label>Current Office<input id="foff" value="${esc(d?.office||'')}"></label><label>Custodian<input id="fcus" value="${esc(d?.custodian||'')}"></label><label class="wide">Remarks<textarea id="fm">${esc(d?.remarks||'')}</textarea></label><div class="actions wide"><button type="button" class="secondary" onclick="closeM()">Cancel</button><button class="primary">Save Document</button></div></form>`;modal.style.display='grid'}
-function saveDoc(e,existing){e.preventDefault();let d=existing?db.documents.find(x=>x.id===existing):null,o={id:existing||id(),control:fc.value,reference:fr.value,subject:fs.value,type:ft.value,sender:fse.value,origin:fo.value,received:fd.value,due:fdu.value,priority:fp.value,status:fst.value,office:foff.value,custodian:fcus.value,remarks:fm.value,updated:new Date().toLocaleString()};if(d)Object.assign(d,o);else db.documents.push(o);save();closeM();flash('Document saved.');renderDashboard();if(!document.getElementById('registry').classList.contains('hidden'))renderRegistry()}
-function renderRegistry(){registry.innerHTML=`<div class="toolbar"><input id="q" placeholder="Search control, subject, sender, office..." oninput="filter()"><select id="sf" onchange="filter()"><option value="">All Status</option><option>Received</option><option>In Process</option><option>Released</option><option>Closed</option></select><button class="secondary" onclick="exportCSV()">Export CSV</button></div><div class="panel"><div class="tablewrap"><table id="tbl"><tr><th>Control</th><th>Subject</th><th>Sender</th><th>Received</th><th>Due</th><th>Office</th><th>Status</th><th>Priority</th><th>Action</th></tr>${db.documents.slice().reverse().map(x=>`<tr data-search="${esc((x.control+' '+x.subject+' '+x.sender+' '+x.office).toLowerCase())}" data-status="${esc(x.status)}"><td><a href="#" onclick="view(${x.id});return false"><b>${esc(x.control)}</b></a></td><td>${esc(x.subject)}</td><td>${esc(x.sender||'')}</td><td>${esc(x.received)}</td><td>${esc(x.due||'—')}</td><td>${esc(x.office||'—')}<br><small>${esc(x.custodian||'')}</small></td><td>${badge(x.status)}</td><td>${pri(x.priority)}</td><td><button class="secondary" onclick="openDoc(${x.id})">Edit</button></td></tr>`).join('')||'<tr><td colspan="9" class="empty">No records.</td></tr>'}</table></div></div>`}
-function filter(){let z=(q.value||'').toLowerCase(),s=sf.value;document.querySelectorAll('#tbl tr[data-search]').forEach(r=>r.style.display=(!z||r.dataset.search.includes(z))&&(!s||r.dataset.status===s)?'':'none')}
-function view(i){let d=db.documents.find(x=>x.id===i);modalTitle.textContent=d.control;modalBody.innerHTML=`<div class="panel" style="margin:0"><h2>${esc(d.subject)}</h2><div class="detail">${[['Type',d.type],['Sender',d.sender],['Received',d.received],['Due',d.due||'—'],['Status',d.status],['Priority',d.priority],['Office',d.office||'—'],['Custodian',d.custodian||'—'],['Origin',d.origin||'—']].map(x=>`<div class="kv"><small>${x[0]}</small><b>${esc(x[1])}</b></div>`).join('')}</div><p>${esc(d.remarks||'')}</p></div>`;modal.style.display='grid'}
-function renderReports(){reports.innerHTML=`<div class="panel"><div class="actions" style="justify-content:flex-start"><button class="primary" onclick="exportCSV()">Export CSV</button><button class="secondary" onclick="print()">Print</button></div><div class="tablewrap"><table><tr><th>Control</th><th>Subject</th><th>Type</th><th>Received</th><th>Due</th><th>Status</th><th>Office</th></tr>${db.documents.map(x=>`<tr><td>${esc(x.control)}</td><td>${esc(x.subject)}</td><td>${esc(x.type)}</td><td>${esc(x.received)}</td><td>${esc(x.due||'')}</td><td>${esc(x.status)}</td><td>${esc(x.office||'')}</td></tr>`).join('')}</table></div></div>`}
-function renderSettings(){settings.innerHTML=`<div class="panel"><h2>GitHub Pages Connection</h2><p>This site is designed to be hosted as a static GitHub Pages site. GitHub Pages serves HTML/CSS/JavaScript files directly from a repository. <span class="online">● Static site ready</span></p><p class="muted">Current mode: <b>Browser Local Database</b>. Records stay on the device/browser until a shared cloud database is connected.</p></div><div class="panel"><h2>School Configuration</h2><div class="grid"><label>School Name<input id="sn" value="${esc(db.school.name)}"></label><label>School ID<input id="si" value="${esc(db.school.id)}"></label><label>Division<input id="sd" value="${esc(db.school.division)}"></label><label>Region<input id="sr" value="${esc(db.school.region)}"></label></div><div class="actions"><button class="primary" onclick="saveSchool()">Save</button></div></div><div class="panel"><h2>Shared Database Upgrade</h2><p>For multiple KNHS computers to share the same live Document Registry and Dashboard, connect this GitHub Pages frontend to Supabase/Firebase or another database API. Do not store confidential school records directly in a public GitHub repository.</p><p class="small muted">The V5 package includes a database configuration template for this next step.</p></div>`}
-function saveSchool(){db.school={name:sn.value,id:si.value,division:sd.value,region:sr.value};save();foot.innerHTML=`${esc(db.school.name)}<br>School ID: ${esc(db.school.id)}<br>${esc(db.school.division)} • ${esc(db.school.region)}`;flash('School settings saved.')}
-function exportCSV(){let rows=[['Control No','Reference','Subject','Type','Sender','Origin','Received','Due','Priority','Status','Office','Custodian','Remarks'],...db.documents.map(x=>[x.control,x.reference,x.subject,x.type,x.sender,x.origin,x.received,x.due,x.priority,x.status,x.office,x.custodian,x.remarks])];let csv=rows.map(r=>r.map(v=>`"${String(v??'').replaceAll('"','""')}"`).join(',')).join('\\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='KNHS_DocumentTrack_Registry.csv';a.click()}
-function closeM(){modal.style.display='none'}load();
-</script></body></html>
+/* MAIN PAGE SCROLL LOCK FOR GOOGLE SHEETS */
+(function () {
+    const frames = Array.from(document.querySelectorAll('.sheet iframe'));
+    let locked = false;
+    let savedX = 0;
+    let savedY = 0;
+    let timer = null;
+
+    function savePosition() {
+        savedX = window.scrollX || window.pageXOffset || 0;
+        savedY = window.scrollY || window.pageYOffset || 0;
+    }
+
+    function restorePosition() {
+        if (!locked) return;
+        if (Math.abs((window.scrollY || 0) - savedY) > 1 ||
+            Math.abs((window.scrollX || 0) - savedX) > 1) {
+            window.scrollTo(savedX, savedY);
+        }
+    }
+
+    function lockPage() {
+        locked = true;
+        savePosition();
+
+        [0, 20, 50, 100, 200, 400, 700, 1200].forEach(function (ms) {
+            setTimeout(restorePosition, ms);
+        });
+    }
+
+    function unlockPage() {
+        locked = false;
+        clearTimeout(timer);
+    }
+
+    frames.forEach(function (frame) {
+        frame.addEventListener('pointerdown', lockPage, true);
+        frame.addEventListener('mousedown', lockPage, true);
+        frame.addEventListener('touchstart', lockPage, {capture:true, passive:true});
+
+        frame.addEventListener('focus', function () {
+            lockPage();
+        }, true);
+
+        frame.addEventListener('load', function () {
+            if (locked) {
+                setTimeout(restorePosition, 50);
+                setTimeout(restorePosition, 200);
+            }
+        });
+    });
+
+    /* Google Sheets can cause the browser window to move when it
+       receives focus. Immediately restore the saved position. */
+    window.addEventListener('blur', function () {
+        if (!locked) return;
+        [0, 30, 80, 150, 300].forEach(function (ms) {
+            setTimeout(restorePosition, ms);
+        });
+    });
+
+    /* Catch any parent-page movement caused by iframe interaction. */
+    window.addEventListener('scroll', function () {
+        if (!locked) return;
+        clearTimeout(timer);
+        timer = setTimeout(restorePosition, 0);
+    }, {passive:true});
+
+    /* Clicking outside the sheet returns control to normal page scrolling. */
+    document.addEventListener('pointerdown', function (event) {
+        if (!frames.some(function (frame) {
+            return event.target === frame;
+        })) {
+            unlockPage();
+        }
+    }, true);
+
+    /* Navigation links are allowed to move the main page. */
+    document.querySelectorAll('nav a, .quick a').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            const id = this.getAttribute('href');
+            const target = document.querySelector(id);
+            if (!target) return;
+
+            event.preventDefault();
+            unlockPage();
+
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            if (history.pushState) {
+                history.pushState(null, '', id);
+            }
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
